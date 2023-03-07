@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>WPF_DataGrid</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Font\Roboto-Regular.ttf" />
+    <None Remove="Images\ChkChecked.png" />
+    <None Remove="Images\ChkNotChecked.png" />
+    <None Remove="Images\CmdCancel.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemoLibrary\DemoLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Font\Roboto-Regular.ttf" />
+    <Resource Include="Images\ChkChecked.png" />
+    <Resource Include="Images\ChkNotChecked.png" />
+    <Resource Include="Images\CmdCancel.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\bin\Release\net6.0\DemoLibrary.deps.json
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\bin\Release\net6.0\DemoLibrary.dll
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\bin\Release\net6.0\DemoLibrary.pdb
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.csproj.AssemblyReference.cache
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.AssemblyInfoInputs.cache
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.AssemblyInfo.cs
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.csproj.CoreCompileInputs.cache
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.dll
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\refint\DemoLibrary.dll
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\DemoLibrary.pdb
+C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\DemoLibrary\obj\Release\net6.0\ref\DemoLibrary.dll

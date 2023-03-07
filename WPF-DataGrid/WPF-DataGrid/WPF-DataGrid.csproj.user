@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Projects\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\WPF-DataGrid\Properties\PublishProfiles\FolderProfile1.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UserControls\UCPersonalData.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Dictionaries\Languages\en-US.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Languages\fr-FR.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Languages\it-IT.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Style\PanelStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Template\CheckBoxes.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Values\CommonImg.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Values\CommonValues.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Values\Font.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\Values\PanelValues.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\UCPersonalData.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

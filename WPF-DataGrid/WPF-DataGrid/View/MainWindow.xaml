@@ -1,0 +1,214 @@
+﻿<Window x:Class="WPF_DataGrid.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_DataGrid"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource PANEL_BRUSH_BASE_BKG}"
+        Title="WPF-DataGrid"
+        xmlns:UC="clr-namespace:WPF_DataGrid.UserControls"
+        xmlns:vm="clr-namespace:ViewModel"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Height="600"
+        Width="600">
+
+    <Border Padding="{StaticResource BORDER_PADDING}">
+
+        <StackPanel Orientation="Vertical">
+            <!--Close Button -->
+            <Button Style="{StaticResource CLOSE_BTN_STYLE}"
+                    Command="{Binding Path=CloseWindowCommand}" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--GroupBox-->
+                <GroupBox Grid.Column="0"
+                          Header="{DynamicResource ResourceKey=PERSONAL_INFO}"
+                          Style="{StaticResource GROUPBOX_INFO_STYLE}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{StaticResource GP_GRID_HEIGHT}" />
+                            <RowDefinition Height="{StaticResource GP_GRID_HEIGHT}" />
+                            <RowDefinition Height="{StaticResource GP_GRID_HEIGHT}" />
+                            <RowDefinition Height="{StaticResource GP_GRID_HEIGHT}" />
+                            <RowDefinition Height="{StaticResource GP_GRID_HEIGHT}" />
+                            <RowDefinition Height="{StaticResource GP_GRID_HEIGHT}" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <UC:UCPersonalData
+                            Grid.Row="0"
+                            Grid.ColumnSpan="2"
+                            TextBlockText="ID"
+                            TextBoxText="{Binding Path=Person.PersonId, Mode=TwoWay}" />
+
+                        <UC:UCPersonalData Grid.Row="1"
+                                           Grid.ColumnSpan="2"
+                                           TextBlockText="{DynamicResource FIRST_NAME}"
+                                           TextBoxText="{Binding Path=Person.FirstName, Mode=TwoWay}" />
+                        <UC:UCPersonalData Grid.Row="2"
+                                           Grid.ColumnSpan="2"
+                                           TextBlockText="{DynamicResource LAST_NAME}"
+                                           TextBoxText="{Binding Path=Person.LastName,Mode=TwoWay}" />
+
+                        <UC:UCPersonalData Grid.Row="3"
+                                           Grid.ColumnSpan="2"
+                                           TextBlockText="{DynamicResource COUNTRY}"
+                                           TextBoxText="{Binding Path=Person.Country, Mode=TwoWay}" />
+
+                        <TextBlock Grid.Row="4"
+                                       Grid.Column="0"
+                                Text="{DynamicResource AVAILABLE}"
+                                Style="{StaticResource AVAILABLE_TEXT_STYLE}"/>
+                        
+                        <CheckBox Grid.Row="4"
+                                      Grid.Column="1"
+                                Style="{StaticResource CHB_STYLE}" 
+                                  HorizontalAlignment="Left"
+                                IsChecked="{Binding Path=Person.Available, Mode=TwoWay}"/>
+
+                        <Button Grid.Row="5"
+                                Grid.ColumnSpan="2"
+                            Style="{StaticResource SUBMIT_BTN_STYLE}"
+                            Command="{Binding Path=AddPerson}">
+                            <TextBlock
+                                Text="{DynamicResource BTN_ADD_TABLE}"
+                                TextAlignment="Center" />
+                        </Button>
+
+
+                    </Grid>
+                </GroupBox>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Vertical"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <TextBlock Text="{DynamicResource LANG_TEXT}" Style="{StaticResource LANG_TEXT_STYLE}" />
+                    <ComboBox 
+                              ItemsSource="{Binding Path=LanguageCollection}"
+                              DisplayMemberPath="Content"
+                              SelectedValue="{Binding Path=SelectedLanguage}"
+                              SelectedValuePath="Tag"
+                              Style="{StaticResource STYLE_LANG_COMBOBOX}"
+                              ItemContainerStyle="{StaticResource PANEL_STYLE_COMBOBOXITEM}" />
+
+                    <Button
+                        Content="{DynamicResource CONFIRM_LANG}"
+                        Command="{Binding Path=ApplyLanguage}"
+                        Style="{StaticResource CONFIRM_LANG_BTN_STYLE}"
+                        Margin="0 10 0 0"/>
+                </StackPanel>
+
+            </Grid>
+
+            <!--Data Grid-->
+            <DataGrid
+                ItemsSource="{Binding People}"
+                MaxHeight="{StaticResource DATAGRID_MAX_HEIGHT}"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                SelectionUnit="Cell"
+                SelectionMode="Extended"
+                CanUserReorderColumns="False"
+                AlternatingRowBackground="AliceBlue"
+                CellStyle="{StaticResource DATAGIRD_CELL_STYLE}"
+                ColumnHeaderStyle="{StaticResource DATAGRID_COL_STYLE}"
+                RowStyle="{StaticResource DATAGRID_ROW_STYLE}"
+                ScrollViewer.CanContentScroll="True"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                ColumnWidth="*"
+                Margin="0 10 0 0">
+                <DataGrid.Columns>
+                    <!-- first  header-->
+                    <DataGridTextColumn
+                        Binding="{Binding Path=PersonId,Mode=OneTime}">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="ID" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+                    <!-- second  header-->
+                    <DataGridTextColumn
+                        Binding="{Binding Path=FirstName,Mode=OneTime}">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{DynamicResource FIRST_NAME}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+
+
+                    <!-- third  header-->
+                    <DataGridTextColumn
+                        Binding="{Binding Path=LastName,Mode=OneTime}">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{DynamicResource LAST_NAME}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+
+                    <!--fourth header-->
+                    <DataGridCheckBoxColumn
+                        ElementStyle="{StaticResource CHB_STYLE_READONLY}"
+                        Binding="{Binding Path=Available,Mode=OneTime}">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{DynamicResource AVAILABLE}" />
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+
+                    <!--fifth header-->
+                    <DataGridTextColumn
+                        Binding="{Binding Path=FullName,Mode=OneTime}">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{DynamicResource FULL_NAME}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                        <DataGridTextColumn.ElementStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                            </Style>
+                        </DataGridTextColumn.ElementStyle>
+                    </DataGridTextColumn>
+
+                    <!--Sizth header-->
+                    <DataGridTextColumn
+                        Binding="{Binding Path=Country,Mode=OneTime}">
+                        <DataGridTextColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Text="{DynamicResource COUNTRY}" />
+                            </DataTemplate>
+                        </DataGridTextColumn.HeaderTemplate>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </StackPanel>
+
+    </Border>
+</Window>

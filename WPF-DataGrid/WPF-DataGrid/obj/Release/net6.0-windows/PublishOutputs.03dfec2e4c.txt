@@ -1,0 +1,7 @@
+C:\Users\Lenovo\Desktop\deploy\WPF-DataGrid.exe
+C:\Users\Lenovo\Desktop\deploy\WPF-DataGrid.dll
+C:\Users\Lenovo\Desktop\deploy\WPF-DataGrid.deps.json
+C:\Users\Lenovo\Desktop\deploy\WPF-DataGrid.runtimeconfig.json
+C:\Users\Lenovo\Desktop\deploy\WPF-DataGrid.pdb
+C:\Users\Lenovo\Desktop\deploy\DemoLibrary.dll
+C:\Users\Lenovo\Desktop\deploy\DemoLibrary.pdb

@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xml:space="preserve">
+
+    <system:String x:Key="Language_Code">it-IT</system:String>
+
+    <system:String x:Key="FIRST_NAME">Nome</system:String>
+    <system:String x:Key="LAST_NAME">Cognome</system:String>
+    <system:String x:Key="FULL_NAME">Nome e&#13;Cognome</system:String>
+    <system:String x:Key="AVAILABLE">Disponibile</system:String>
+    <system:String x:Key="COUNTRY">Paese</system:String>
+    <system:String x:Key="PERSONAL_INFO">Dati Personali</system:String>
+    <system:String x:Key="LANG_TEXT">Lingua</system:String>
+     <system:String
+        x:Key="BTN_ADD_TABLE">Aggiungi alla &#13; tabella</system:String>
+    <system:String
+        x:Key="CONFIRM_LANG">Conferma</system:String>
+</ResourceDictionary>

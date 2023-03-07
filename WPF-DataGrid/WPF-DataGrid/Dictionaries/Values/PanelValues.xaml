@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="PANEL_BRUSH_BASE_BKG"                      Color="#011B48" />
+    <SolidColorBrush x:Key="PANEL_BRUSH_CTRL_WRITABLE_BKG"             Color="#2D57A0"/>
+    <SolidColorBrush x:Key="PANEL_BRUSH_CTRL_WRITABLE_FORE"            Color="#E5E5E5"/>
+
+    <!-- Language Combobox-->
+    <SolidColorBrush x:Key="PANEL_BRUSH_COMBOBOX_FORE"                 Color="#E5E5E5"/>
+    <SolidColorBrush x:Key="PANEL_BRUSH_COMBOBOXITEM_BKG"              Color="#2D57A0"/>
+    
+    <!-- submit button (Add info to table)-->
+    <SolidColorBrush x:Key="BTN_BRUSH_BKG"                             Color="#FFFFD700"/>
+    <SolidColorBrush x:Key="BTN_BRUSH_FORE"                            Color="#FF4B0082"/>
+
+</ResourceDictionary>

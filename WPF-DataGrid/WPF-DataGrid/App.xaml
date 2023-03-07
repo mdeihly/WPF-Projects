@@ -1,0 +1,21 @@
+﻿<Application x:Class="WPF_DataGrid.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPF_DataGrid"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionaries/Values/CommonImg.xaml"/>
+                <ResourceDictionary Source="Dictionaries/Values/CommonValues.xaml"/>
+                <ResourceDictionary Source="Dictionaries/Values/PanelValues.xaml"/>
+                <ResourceDictionary Source="Dictionaries/Values/Font.xaml"/>
+                <ResourceDictionary Source="Dictionaries/Style/PanelStyle.xaml"/>
+                <ResourceDictionary Source="Dictionaries/Template/CheckBoxes.xaml"/>
+                <ResourceDictionary Source="Dictionaries/Template/LangCombobox.xaml"/>
+                <!-- Default Language Dictionary-->
+                <ResourceDictionary Source="Dictionaries/Languages/en-US.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
