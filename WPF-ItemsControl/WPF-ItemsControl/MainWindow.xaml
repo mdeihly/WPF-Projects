@@ -1,0 +1,60 @@
+﻿<Window x:Class="WPF_ItemsControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_ItemsControl" 
+        xmlns:viewmodels="clr-namespace:WPF_ItemsControl.ViewModel"
+        mc:Ignorable="d"
+        Title="ItemsControl" 
+        MaxHeight="450" MaxWidth="400">
+
+    <!--resources-->
+    <Window.Resources>
+        <DataTemplate x:Key="STACK_TEMPLATE">
+            <Border BorderBrush="Black" BorderThickness="3"
+                        Margin="10" Padding="10" CornerRadius="15">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsAvailable}"
+                                                 Value="True">
+                                <Setter Property="Background" Value="Green"/>
+                            </DataTrigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                    <Condition Property="IsMouseCaptured" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" Value="Red"/>
+                            </MultiTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding Path=FullName}"
+                               FontSize="15" FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="{Binding Path= PersonId, FallbackValue=00}"
+                               FontSize="20" FontWeight="Bold"
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Window.Resources>
+
+    <!--Grid-->
+    <Grid>
+        <ItemsControl ItemTemplate="{StaticResource STACK_TEMPLATE}"
+                      ItemsSource="{Binding ModelList}">
+            <ItemsControl.DataContext>
+                <viewmodels:ViewModel/>
+            </ItemsControl.DataContext>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
+</Window>
