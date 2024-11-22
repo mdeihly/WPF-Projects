@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <BitmapImage x:Key="MINIMIZE_ICON"   UriSource="/Assets/minimize.png"/>
+    <BitmapImage x:Key="MAXIMIZE_ICON"   UriSource="/Assets/maximize.png"/>
+    <BitmapImage x:Key="CLOSE_ICON"      UriSource="/Assets/close.png"/>
+
+</ResourceDictionary>
