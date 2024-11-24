@@ -1,0 +1,23 @@
+﻿<Window x:Class="DarkLight_Themes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DarkLight_Themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="450"
+        WindowStyle="ToolWindow"
+        Style="{StaticResource WINDOW_STYLE}">
+    <UniformGrid Rows="4">
+        <Button Content="Hello"/>
+        <Button Content="Button"/>
+        <RadioButton x:Name="darkModeBtn" Content="Dark Mode"
+                     HorizontalAlignment="Center" VerticalAlignment="Center"
+                     VerticalContentAlignment="Center" FontSize="30" GroupName="themesBtn"
+                     Click="darkModeBtn_Click"/>
+        <RadioButton x:Name="lightModeBtn" Content="Light Mode"
+                     HorizontalAlignment="Center" VerticalAlignment="Center"
+                     VerticalContentAlignment="Center" FontSize="30" GroupName="themesBtn"
+                     Click="lightModeBtn_Click"/>
+    </UniformGrid>
+</Window>
