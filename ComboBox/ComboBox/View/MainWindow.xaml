@@ -1,0 +1,43 @@
+﻿<Window x:Class="ComboBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ComboBox" 
+        xmlns:viewmodels="clr-namespace:ComboBox.ViewModel"
+        mc:Ignorable="d"
+        Title="ComboBox" Height="250" Width="400"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen">
+    <Grid VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Row="0"
+                  x:Name="comboBox"
+                  ItemsSource="{Binding Path=ModelList}"
+                  SelectedItem="{Binding Path=SelectedPerson}">
+            <ComboBox.DataContext>
+                <viewmodels:ViewModel/>
+            </ComboBox.DataContext>
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Path=FullName}"/>
+                        <TextBlock>
+                            <Run Text=" - Country: " FontStyle="Italic"/>
+                            <Run Text="{Binding Path=Country}" FontWeight="Bold" />
+                        </TextBlock>
+                        <CheckBox IsChecked="{Binding Path=IsAvailable}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="2"
+                   Text="{Binding ElementName=comboBox, Path=SelectedItem.FullName}"/>
+    </Grid>
+</Window>
