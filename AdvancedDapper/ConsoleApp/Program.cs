@@ -10,12 +10,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
-
         // mapMultipleObjects();
         //multipleObjectsWithParameter("John");
         //multipleSets();
         //outputParameters("John", "Cena");
+        runWithTransaction("Abd", "Leo");
     }
 
     public static string getConnection(string connection = "DefaultConnection")
@@ -46,6 +45,7 @@ class Program
     {
         using (IDbConnection cnn = new SqlConnection(getConnection()))
         {
+            // Use an anonymous object to pass parameters
             var p = new
             {
                 LastName = lastname
@@ -122,6 +122,51 @@ class Program
 
             Console.WriteLine($"The new Id is {newId}");
 
+        }
+    }
+
+    public static void runWithTransaction(string firstname, string lastname)
+    {
+        using (IDbConnection cnn = new SqlConnection(getConnection()))
+        {
+            var parameters = new
+            {
+                FirstName = firstname,
+                LastName = lastname
+            };
+
+            // open the connection
+            cnn.Open();
+
+            using (var trans = cnn.BeginTransaction())
+            {
+                try
+                {
+                    // Step 1
+                    string sql = @"insert into dbo.Person (FirstName, LastName)
+                           values (@FirstName, @LastName)";
+
+                    int recordUpdated = cnn.Execute(sql, parameters, trans);
+
+                    Console.WriteLine($"Records updated: {recordUpdated}");
+
+                    // Step 2
+                    // example of Rollback
+                    //cnn.Execute("update dbo.Person set Id = 1", transaction: trans);
+                    cnn.Execute("update dbo.Person set LastName = '1'", transaction: trans);
+
+
+                    // Commit the transaction
+                    trans.Commit();
+                    Console.WriteLine("Transaction committed successfully!");
+                }
+                catch (Exception ex)
+                {
+                    // Roll back the transaction on error
+                    trans.Rollback();
+                    Console.WriteLine($"Transaction rolled back due to an error: {ex.Message}");
+                }
+            }
         }
     }
 
